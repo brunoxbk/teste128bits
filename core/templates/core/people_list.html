@@ -1,0 +1,130 @@
+{% extends 'core/aux/base.html' %}
+
+{% load i18n %}
+
+{% block meta %}
+  <title>  {% trans 'People list' %}  </title>
+{% endblock %}
+
+{% block content %}
+  <div class='row'>
+    {% if st == '1' %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Ok!</strong> {% trans "Successfully deleted people" %}
+      </div>
+    {% elif st == '2' %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Ok!</strong> {% trans "Successfully registered people" %}
+      </div>
+    {% elif st == '3' %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Ok!</strong> {% trans "Successfully updated people" %}
+      </div>
+    {% endif %}
+  </div>
+  <div class='row'>
+    <table class="table">
+      <tr>
+        <th>{% trans "Photo" %}</th>
+        <th>{% trans "Name" %}</th>
+        <th>{% trans "Age" %}</th>
+        <th>{% trans "Actions" %}</th>
+      </tr>
+
+      <tbody class='table-hover'>
+      {% for people in people_list %}
+      <tr>
+        <td>
+          <img src="{{people.photo}}" alt="{{people.name}}"
+             class="img-rounded" height="32" width="32">
+        </td>
+        <td>{{people.name}}</td>
+        <td>{{people.age}}</td>
+        <td>
+          <div class="btn-group btn-group-sm" role="group">
+            <a href="{% url 'core:people-detail' people.id %}"
+              class="btn btn-info btn-xs">
+              <span class="glyphicon  glyphicon glyphicon-eye-open"
+              aria-hidden="true"></span>
+            </a>
+            <a href="{% url 'core:people-update' people.id %}"
+              class="btn btn-primary btn-xs">
+              <span class="glyphicon  glyphicon glyphicon-edit"
+              aria-hidden="true"></span>
+            </a>
+            <a href="{% url 'core:people-delete' people.id %}"
+              class="btn btn-danger btn-xs">
+              <span class="glyphicon  glyphicon glyphicon-remove"
+              aria-hidden="true"></span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      {% empty %}
+        <tr><td colspan='4'>
+          <center>{% trans "No peoples" %}</center>
+        </td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class='row'>
+    <nav>
+      <ul class="pagination">
+        {% if actual < 2 %}
+        <li class="disabled" >
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% else %}
+          <li>
+          <a href="/?page={{prev}}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+        {% for page in list_pages %}
+          <li {% if actual == page %} class="active" {% endif %} >
+            <a href="/?page={{page}}">{{page}}</a>
+          </li>
+        {% endfor %}
+        {% if actual >= total or total == 1 %}
+          <li class="disabled" >
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% else %}
+          <li>
+            <a href="/?page={{next}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/typeahead.jquery.min.js" type="text/javascript"></script>
+
+<script>
+$("#search").typeahead({
+  onSelect: function(item){
+    window.open("/people/" + item.value + "/detail" ,"_self");
+  },
+  ajax: {
+    scrollBar: true,
+    method: 'get',
+    url: '/autocomplete/',
+    triggerLength: 3
+  }
+});
+</script>
+
+{% endblock %}

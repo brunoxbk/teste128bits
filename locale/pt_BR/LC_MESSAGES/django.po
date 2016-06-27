@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-27 00:34-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: core/forms.py:7 core/models.py:7 core/templates/core/people_list.html.py:32
+msgid "Name"
+msgstr "Nome"
+
+#: core/forms.py:10 core/models.py:10 core/templates/core/people_list.html:33
+msgid "Age"
+msgstr "Idade"
+
+#: core/forms.py:13 core/models.py:9 core/templates/core/people_list.html.py:31
+msgid "Photo"
+msgstr "Foto"
+
+#: core/models.py:11
+msgid "Created"
+msgstr "Criado"
+
+#: core/models.py:12
+msgid "Changed"
+msgstr "Alterado"
+
+#: core/templates/core/aux/navbar.html:22
+msgid "New People"
+msgstr "Nova Pessoa"
+
+#: core/templates/core/aux/navbar.html:29
+msgid "Search"
+msgstr "Busca"
+
+#: core/templates/core/aux/navbar.html:32
+msgid "Submit"
+msgstr "Enviar"
+
+#: core/templates/core/people_confirm_delete.html:6
+msgid "Confirm delete?"
+msgstr "Deseja Excluir"
+
+#: core/templates/core/people_confirm_delete.html:12
+msgid "Are you sure?"
+msgstr "Você tem certeza"
+
+#: core/templates/core/people_confirm_delete.html:14
+msgid "You're about to delete"
+msgstr "Você está prestes a excluir"
+
+#: core/templates/core/people_confirm_delete.html:15
+msgid ". Please confirm."
+msgstr ". Por favor confirme."
+
+#: core/templates/core/people_confirm_delete.html:19
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: core/templates/core/people_confirm_delete.html:21
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: core/templates/core/people_detail.html:6
+msgid "Detail"
+msgstr "Detalhes"
+
+#: core/templates/core/people_detail.html:15
+msgid "Name:"
+msgstr "Nome"
+
+#: core/templates/core/people_detail.html:16
+msgid "Age:"
+msgstr "Idade:"
+
+#: core/templates/core/people_form.html:44
+msgid "Back"
+msgstr "Voltar"
+
+#: core/templates/core/people_form.html:46
+msgid "Send"
+msgstr "Enviar"
+
+#: core/templates/core/people_list.html:6
+msgid "People list"
+msgstr "Listar pessoas"
+
+#: core/templates/core/people_list.html:14
+msgid "Successfully deleted people"
+msgstr "Pessoa excluida com sucesso"
+
+#: core/templates/core/people_list.html:19
+msgid "Successfully registered people"
+msgstr "Pessoa resgristrada com sucesso"
+
+#: core/templates/core/people_list.html:24
+msgid "Successfully updated people"
+msgstr "Pessoa alterada com sucesso"
+
+#: core/templates/core/people_list.html:34
+msgid "Actions"
+msgstr "Ações"
+
+#: core/templates/core/people_list.html:68
+msgid "No peoples"
+msgstr "Sem pessoas"
+
+#: core/views.py:64 core/views.py:77 core/views.py:104
+msgid "New people"
+msgstr "Nova pessoa"
+
+#: core/views.py:89
+msgid "Update people"
+msgstr "Alterar pessoa"
+
+#: teste128/settings.py:111
+msgid "English"
+msgstr "Inglês"
+
+#: teste128/settings.py:112
+msgid "Portuguese"
+msgstr "Português"

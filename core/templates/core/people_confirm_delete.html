@@ -1,0 +1,25 @@
+{% extends 'core/aux/base.html' %}
+
+{% load i18n %}
+
+{% block meta %}
+  <title>  {{object_name}} {% trans 'Confirm delete?' %}  </title>
+{% endblock %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div class="side-p">
+          <h3>{% trans 'Are you sure?' %}</h3>
+          <p>
+            {% trans "You're about to delete" %} {{ object }}
+            {% trans ". Please confirm." %}</p>
+          <form action="" method="post">
+            {% csrf_token %}
+            <input class="btn btn-default" type="button"
+              value="{% trans 'Cancel' %}" onclick="window.history.go(-1);"/>
+            <input class="btn btn-danger"
+              type="submit" value="{% trans 'Confirm' %}"/>
+          </form>
+      </div>
+    </div>
+{% endblock %}

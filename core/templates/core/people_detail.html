@@ -1,0 +1,25 @@
+{% extends 'core/aux/base.html' %}
+
+{% load i18n %}
+
+{% block meta %}
+  <title>  {{people.name}} {% trans 'Detail' %}  </title>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{people.photo}}" alt="{{people.name}}"
+        class="img-rounded" height="82" width="82">
+      <address>
+        <h1><strong>{% trans 'Name:' %} </strong> {{people.name}}</h1>
+        <h2><strong>{% trans 'Age:' %} </strong> {{people.age}}</h2>
+      </address>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
