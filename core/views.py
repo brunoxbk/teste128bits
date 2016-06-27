@@ -42,23 +42,22 @@ class PeopleList(View):
 
 class PeopleCreate(View):
     form_class = FormPeople
-    initial = {}
     template_name = 'core/people_form.html'
 
-    try:
-        r = requests.get('http://api.randomuser.me/')
-        data = json.loads(r.text)
-        data = data['results'][0]
-        initial = {
-            'name': "%s %s" % (data['name']['first'], data['name']['last']),
-            'photo': data['picture']['medium'],
-            'age': random.randrange(0, 120)}
-    except Exception as e:
-        print(e)
-        # raise e
-
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
+        initial = {}
+        try:
+            r = requests.get('http://api.randomuser.me/')
+            data = json.loads(r.text)
+            data = data['results'][0]
+            initial = {
+                'name': "%s %s" % (
+                    data['name']['first'], data['name']['last']),
+                'photo': data['picture']['medium'],
+                'age': random.randrange(0, 120)}
+        except Exception as e:
+            print(e)
+        form = self.form_class(initial=initial)
         return render(
             request, self.template_name,
             {'form': form, 'name_form': _('New people')})
